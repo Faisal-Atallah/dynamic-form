@@ -1,0 +1,26 @@
+[
+    {   
+        "labelText": "Item Name",
+        "hintText":"",
+        "position":1,
+        "readOnly": false,
+        "placeholder": "Hi Group flutter",
+        "name": "name",
+        "widget": "text",
+        "require": true,
+        "obscureText":false,
+        "keyboardType":"TextInputType.text"
+    },
+    {
+        "labelText": "Item Name",
+        "hintText":"",
+        "position":2,
+        "readOnly": false,
+        "placeholder": "Hi Group flutter",
+        "name": "name",
+        "widget": "text",
+        "require": true,
+        "obscureText":false,
+        "keyboardType":"TextInputType.text"
+    }
+]

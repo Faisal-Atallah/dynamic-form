@@ -1,0 +1,50 @@
+From ad18b73407a174883ffe6be11db210226cc5a074 Mon Sep 17 00:00:00 2001
+From: Sanket Chaudhari <chaudharisanket2000@gmail.com>
+Date: Mon, 22 Oct 2018 04:29:51 +0530
+Subject: [PATCH] Made Stepper, Stepper Size Dynamic
+
+---
+ .../flutter/lib/src/material/stepper.dart     | 20 +++++++++----------
+ 1 file changed, 9 insertions(+), 11 deletions(-)
+
+diff --git a/packages/flutter/lib/src/material/stepper.dart b/packages/flutter/lib/src/material/stepper.dart
+index ccce36671..8289a034a 100644
+--- a/packages/flutter/lib/src/material/stepper.dart
++++ b/packages/flutter/lib/src/material/stepper.dart
+@@ -513,11 +513,14 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
+   }
+ 
+   Widget _buildVertical() {
+-    final List<Widget> children = <Widget>[];
+ 
+-    for (int i = 0; i < widget.steps.length; i += 1) {
+-      children.add(
+-        Column(
++    return ListView.builder(
++      shrinkWrap: true,
++      itemCount: widget.steps.length,
++      itemBuilder: (BuildContext context, int i){
++
++        i < _keys.length ? _keys[i] : _keys.add(GlobalKey());
++        return Column(
+           key: _keys[i],
+           children: <Widget>[
+             InkWell(
+@@ -537,13 +540,8 @@ class _StepperState extends State<Stepper> with TickerProviderStateMixin {
+             ),
+             _buildVerticalBody(i)
+           ]
+-        )
+-      );
+-    }
+-
+-    return ListView(
+-      shrinkWrap: true,
+-      children: children,
++        );
++      }
+     );
+   }
+ 
+-- 
+2.19.1
